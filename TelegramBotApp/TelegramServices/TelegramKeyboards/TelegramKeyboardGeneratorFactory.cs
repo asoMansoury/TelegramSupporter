@@ -29,6 +29,10 @@ namespace TeelgramBotSupporter.TelegramServices.TelegramKeyboards
                     CommandsEnum.SelecteNewServer=> new TelegramKeyboardSelectServer(),
                     CommandsEnum.ChangePassword => new TelegramKeyboardChangePassword(),
                     CommandsEnum.CommitChangePassword => new TelegramKeyboardCommitChangePassword(),
+                    CommandsEnum.DownloadSoftwares => new TelegramKeyboardSelectingSoftwareType(),
+                    CommandsEnum.Cisco => new TelegramKeyboardDowlnoadCisco(),
+                    CommandsEnum.OpenVPN => new TelegramKeyboardDowlnoadOpenVPN(),
+                    CommandsEnum.RemainTime => new TelegramKeyboardRemainTime(),
                     _ => null,
                 };
             });

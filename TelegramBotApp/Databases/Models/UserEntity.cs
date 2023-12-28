@@ -35,5 +35,7 @@ namespace TeelgramBotSupporter.Databases.Models
         public bool removedByAdmin { get; set; }
         public bool removedByAgent { get; set; }
         public bool removedBySubAgent { get; set; }
+        public string userwithhub { get; set; }
+        public string currenthubname { get; set; }
     }
 }

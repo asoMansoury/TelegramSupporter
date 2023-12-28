@@ -22,9 +22,11 @@ namespace TelegramBotApp.Databases.RepositoryLayers.BotTelegram
                 botEntities[0].chatId = chatId;
                 var filter = Builders<BsonDocument>.Filter.Eq("username", username) &
                              Builders<BsonDocument>.Filter.Eq("telegramId", telegramId);
-                var update = Builders<BsonDocument>.Update.Set("chatId", chatId);
-
-                await _context.UpdateDocument(_databaseName, _collectionName, filter, update);
+                if (!string.IsNullOrEmpty(chatId))
+                {
+                    var update = Builders<BsonDocument>.Update.Set("chatId", chatId);
+                    await _context.UpdateDocument(_databaseName, _collectionName, filter, update);
+                }
                 return;
             }
 

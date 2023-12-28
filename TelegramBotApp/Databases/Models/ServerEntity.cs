@@ -32,6 +32,11 @@ namespace TeelgramBotSupporter.Databases.Models
         public string iranIP { get; set; }
         public string ciscourl { get; set; }
         public string ovpTelegramPath { get; set; }
+        public bool activefortest { get; set; }
+        public bool activeforsale { get; set; }
+        public bool activeforchangeserver { get; set; }
+        public bool activeforrevoke { get; set; }
+
 
     }
 }

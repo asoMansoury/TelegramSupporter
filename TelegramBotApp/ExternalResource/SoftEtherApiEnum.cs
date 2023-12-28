@@ -14,14 +14,8 @@ namespace TeelgramBotSupporter.ExternalResource
         [Description("/api/telegram/changeuserpassword/")]
         ChangeUserPassworApi,
         [Description("/api/telegram/convertAccounts/")]
-        ConvertAccountsApi
-    }
-
-    public enum ServerTypes
-    {
-        [Description("OC1")]
-        Cisco,
-        [Description("OP1")]
-        OpenVPN
+        ConvertAccountsApi,
+        [Description("/api/telegram/RestartUserConnection/")]
+        RestartAccount
     }
 }

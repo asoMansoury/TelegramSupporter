@@ -27,6 +27,20 @@ namespace TeelgramBotSupporter.TelegramServices.Const
         [Description("تغییر کلمه عبور")]
         ChangePassword,
         [Description("ثبت تغییرات")]
-        CommitChangePassword
+        CommitChangePassword,
+        [Description("دانلود نرم افزار")]
+        DownloadSoftwares,
+        [Description("اپن وی پی ان")]
+        OpenVPN,
+        [Description("سیسکو")]
+        Cisco,
+        [Description("آندروید")]
+        Android,
+        [Description("آیفون")]
+        IPhone,
+        [Description("ویندوز")]
+        Windows,
+        [Description("مشاهده اعتبار")]
+        RemainTime
     }
 }

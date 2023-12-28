@@ -13,8 +13,8 @@ namespace TeelgramBotSupporter.ExternalResource.SoftEtherApi
 {
     public class SoftetherApi : ISoftetherApi
     {
-        //private const string apiUrl = "http://localhost:3000";
-        private const string apiUrl = "http://sale.lachom.ir";
+        private const string apiUrl = "http://localhost:3000";
+        //private const string apiUrl = "http://sale.lachom.ir";
         private readonly HttpClient _client;
         public SoftetherApi()
         {
@@ -92,8 +92,33 @@ namespace TeelgramBotSupporter.ExternalResource.SoftEtherApi
             catch (Exception ex)
             {
 
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task RestartUserAccount(UserChangeServer model, string Token, SoftEtherApiEnum api)
+        {
+            string desitionalUrl = apiUrl + api.GetDescription();
+            var obj = new
+            {
+                username = model.username,
+                token = Token
+            };
+            try
+            {
+                var jsonData = JsonConvert.SerializeObject(obj);
+                HttpContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await _client.PostAsync(desitionalUrl,content);
+                string responseJson = await response.Content.ReadAsStringAsync();
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
+
+        ///
     }
 }

@@ -1,8 +1,11 @@
-﻿using System;
+﻿using NodaTime;
+using PersianDateTimeCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelegramBotApp.TelegramServices.Utility;
 
 namespace TeelgramBotSupporter.TelegramServices.Const
 {
@@ -37,11 +40,19 @@ namespace TeelgramBotSupporter.TelegramServices.Const
             return sb.ToString();
         }
 
-        public string AfterSendingPassword()
+        public string AfterSendingPassword(string expiredTime="")
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"لطفا عملیات مورد نظر خود را انتخاب نمایید.");
+            if(!string.IsNullOrEmpty(expiredTime))
+                sb.AppendLine($"زمان اتمام سرویس : {CommonUtility.ShowRemainTime(expiredTime)}");
+            return sb.ToString();
+        }
 
+        public string ShowingRemainTime(string expiredTime = "")
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"زمان اتمام سرویس : {CommonUtility.ShowRemainTime(expiredTime)}");
             return sb.ToString();
         }
 
@@ -72,7 +83,7 @@ namespace TeelgramBotSupporter.TelegramServices.Const
         public string UnexpectedError()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"عملیات به دلایل نامعلوم انجام نگردید، لطفا بعدا تلاش نمایید.");
+            sb.AppendLine($"عملیات به دلایل نامعلوم انجام نگردید، لطفا مجددا تلاش نمایید.");
 
             return sb.ToString();
         }
@@ -84,6 +95,22 @@ namespace TeelgramBotSupporter.TelegramServices.Const
             return sb.ToString();
         }
 
+        public string IsLoadingFile()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"در حال ارسال فایل، لطفا منتظر بمانید");
+
+            return sb.ToString();
+        }
+
+
+        public string IphoneLinkDownlad()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"برای دانلود نسخه آیفون روی لینک بالا کلیک کنید.");
+
+            return sb.ToString();
+        }
         public string SuccessChangingServerOperation()
         {
             StringBuilder sb = new StringBuilder();
@@ -98,6 +125,26 @@ namespace TeelgramBotSupporter.TelegramServices.Const
             sb.AppendLine($"برای انتخاب کاربر دیگر روی شروع مجدد کلیک کنید");
 
             return sb.ToString();
+        }
+
+
+        public string ChooseSoftwareType()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"نوع نرم افزار خود را انتخاب نمایید.");
+
+            return sb.ToString();
+        }
+
+
+        public string CalculateRemainDay(int number, DateTime expirationTime)
+        {
+            PersianDateTime persianDateTime = new PersianDateTime(expirationTime);
+            StringBuilder strBuilder = new StringBuilder();
+            strBuilder.AppendLine($"تعداد روز باقی مانده اکانت شما : {number} روز");
+            persianDateTime.ToShortDateString();
+            strBuilder.AppendLine($"تاریخ اتمام اعتبار : {persianDateTime}");
+            return strBuilder.ToString();
         }
     }
 }

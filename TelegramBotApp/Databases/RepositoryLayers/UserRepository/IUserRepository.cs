@@ -7,7 +7,7 @@ using TeelgramBotSupporter.Databases.Models;
 
 namespace TeelgramBotSupporter.Databases.RepositoryLayers.UserRepository
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
         Task<UserEntity> GetUserEntityDocument(string username,string password);
     }

@@ -25,8 +25,18 @@ namespace TeelgramBotSupporter.TelegramServices.TelegramKeyboards
 
         public ReplyKeyboardMarkup GenerateKeyBoard(object T = null)
         {
-            KeyboardButton[] row1 = { new KeyboardButton(CommandsEnum.ChangePassword.GetDescription()), new KeyboardButton(CommandsEnum.ChangeServer.GetDescription()), new KeyboardButton(CommandsEnum.ConvertAccount.GetDescription()), new KeyboardButton(CommandsEnum.Start.GetDescription()) };
-            _replyKeyboardMarkup = new ReplyKeyboardMarkup(row1)
+            KeyboardButton[] row1 = { new KeyboardButton(CommandsEnum.ChangePassword.GetDescription()), 
+                                      new KeyboardButton(CommandsEnum.ChangeServer.GetDescription()), 
+                                        new KeyboardButton(CommandsEnum.ConvertAccount.GetDescription()), 
+                                        new KeyboardButton(CommandsEnum.Start.GetDescription()) };
+            KeyboardButton[] row2 = { new KeyboardButton(CommandsEnum.RemainTime.GetDescription()) };
+            KeyboardButton[] row3 = { new KeyboardButton(CommandsEnum.DownloadSoftwares.GetDescription()) };
+            _replyKeyboardMarkup = new ReplyKeyboardMarkup(new[]
+            {
+                row1,
+                row2,
+                row3
+            })
             {
                 OneTimeKeyboard = true,
                 ResizeKeyboard = true
@@ -45,7 +55,7 @@ namespace TeelgramBotSupporter.TelegramServices.TelegramKeyboards
             var UserIsValid = _userRepository.GetUserEntityDocument(User.username, User.password).Result;
             if (UserIsValid != null)
             {
-                _botTelegramRepository.CreateDocument(User.username, User.telegramID,User.chatId);
+                _botTelegramRepository.CreateDocument(User.username, User.telegramID, User.chatId);
                 return new ValidateKeyboard { isValid = true };
             }
 

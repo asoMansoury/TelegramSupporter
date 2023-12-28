@@ -14,5 +14,7 @@ namespace TeelgramBotSupporter.ExternalResource.SoftEtherApi
         Task ChangeUserPassword(UserChangePassword model, string Token, SoftEtherApiEnum api);
 
         Task<T> ConvertAccount<T>(UserChangeServer model, string Token, SoftEtherApiEnum api);
+
+        Task RestartUserAccount(UserChangeServer model, string Token, SoftEtherApiEnum api);
     }
 }

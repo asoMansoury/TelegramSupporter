@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>netcoreapp7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -9,7 +9,23 @@
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NodaTime" Version="3.1.9" />
+    <PackageReference Include="PersianDateTimeCore" Version="1.0.0" />
+    <PackageReference Include="Renci.SshNet.Async" Version="1.4.0" />
     <PackageReference Include="Telegram.Bot" Version="18.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="E:\asp.net core\projects\TelegramBotWebApp\TelegramBotApp\TelegramBotApp\TelegramServices\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\asp.net core\projects\TelegramBotWebApp\TelegramBotApp\TelegramBotApp\TelegramServices\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="VPNServices\CiscoService\" />
+    <Folder Include="VPNServices\OpenVPNService\" />
   </ItemGroup>
 
 </Project>

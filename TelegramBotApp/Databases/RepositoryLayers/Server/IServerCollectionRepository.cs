@@ -13,6 +13,7 @@ namespace TeelgramBotSupporter.Databases.RepositoryLayers
         Task<List<ServerEntity>> GetAllDocuments();
         Task<List<ServerEntity>> GetFilteredTypeDocument( string type);
         Task<ServerEntity> GetFilteredTypeDocument(string type,string code);
+        Task<ServerEntity> GetAllFilteredTypeDocument(string type, string code);
 
 
     }

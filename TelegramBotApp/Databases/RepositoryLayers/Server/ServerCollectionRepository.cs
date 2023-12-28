@@ -40,5 +40,14 @@ namespace TeelgramBotSupporter.Databases.RepositoryLayers
             var collection = await _context.GetFilteredDocument<ServerEntity>(_databaseName, _collectionName, filter);
             return collection.ToList().FirstOrDefault();
         }
+
+        public async Task<ServerEntity> GetAllFilteredTypeDocument(string type, string code)
+        {
+            var filter = Builders<ServerEntity>.Filter
+                .Eq("type", type) & 
+                Builders<ServerEntity>.Filter.Eq("servercode", code);
+            var collection = await _context.GetFilteredDocument<ServerEntity>(_databaseName, _collectionName, filter);
+            return collection.ToList().FirstOrDefault();
+        }
     }
 }

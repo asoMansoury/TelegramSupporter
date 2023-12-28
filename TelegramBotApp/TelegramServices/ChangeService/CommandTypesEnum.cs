@@ -17,5 +17,9 @@ namespace TeelgramBotSupporter.TelegramServices.ChangeService
         ConvertAccount,
         [Description("selectS-")]
         SelectServerAccount,
+        [Description("CiscoApp-")]
+        DownloadCiscoApp,
+        [Description("OpenVPNApp-")]
+        DownloadOpenVPNApp,
     }
 }

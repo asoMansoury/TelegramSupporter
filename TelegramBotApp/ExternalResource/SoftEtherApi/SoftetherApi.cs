@@ -13,8 +13,8 @@ namespace TeelgramBotSupporter.ExternalResource.SoftEtherApi
 {
     public class SoftetherApi : ISoftetherApi
     {
-        private const string apiUrl = "http://localhost:3000";
-        //private const string apiUrl = "http://sale.lachom.ir";
+        //private const string apiUrl = "http://localhost:3000";
+        private const string apiUrl = "http://sale.lachom.ir";
         private readonly HttpClient _client;
         public SoftetherApi()
         {

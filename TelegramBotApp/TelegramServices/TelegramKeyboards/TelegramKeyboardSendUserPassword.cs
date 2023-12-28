@@ -25,11 +25,14 @@ namespace TeelgramBotSupporter.TelegramServices.TelegramKeyboards
 
         public ReplyKeyboardMarkup GenerateKeyBoard(object T = null)
         {
-            KeyboardButton[] row1 = { new KeyboardButton(CommandsEnum.ChangePassword.GetDescription()), 
-                                      new KeyboardButton(CommandsEnum.ChangeServer.GetDescription()), 
-                                        new KeyboardButton(CommandsEnum.ConvertAccount.GetDescription()), 
+            KeyboardButton[] row1 = { new KeyboardButton(CommandsEnum.ChangePassword.GetDescription()),
+                                      new KeyboardButton(CommandsEnum.ChangeServer.GetDescription()),
+                                        new KeyboardButton(CommandsEnum.ConvertAccount.GetDescription()),
                                         new KeyboardButton(CommandsEnum.Start.GetDescription()) };
-            KeyboardButton[] row2 = { new KeyboardButton(CommandsEnum.RemainTime.GetDescription()) };
+
+            KeyboardButton[] row2 = { new KeyboardButton(CommandsEnum.RemainTime.GetDescription()),
+                                      new KeyboardButton(CommandsEnum.Restart.GetDescription())};
+
             KeyboardButton[] row3 = { new KeyboardButton(CommandsEnum.DownloadSoftwares.GetDescription()) };
             _replyKeyboardMarkup = new ReplyKeyboardMarkup(new[]
             {

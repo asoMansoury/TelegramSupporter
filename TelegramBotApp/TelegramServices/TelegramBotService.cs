@@ -346,6 +346,12 @@ namespace TeelgramBotSupporter.TelegramServices
                             await baseService.Run(stackForMessage, item, message, from, chatId);
                             offset = item.Id + 1;
                         }
+                        else if (message.ToLower().Contains(CommandsEnum.Restart.GetDescription().ToLower()))
+                        {
+                            IBaseService baseService = new RestartAccountService(_client);
+                            await baseService.Run(stackForMessage, item, message, from, chatId);
+                            offset = item.Id + 1;
+                        }
                         else if (message.ToLower().Contains(CommandsEnum.ChangeServer.GetDescription().ToLower()))
                         {
                             IBaseService baseService = new ChangeServerService(_client);
